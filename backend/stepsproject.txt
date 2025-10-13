@@ -1,0 +1,33 @@
+step 1->>  server.js file -> basic server ->
+import express from "express";
+import cors from "cors";
+import { connectDB } from "./config/db.js";
+
+//app config
+const app = express();
+const port = 4000;
+
+//middlwares
+app.use(express.json());
+app.use(cors());
+
+//db connection
+connectDB();
+
+app.get("/", (req, res) => {
+  res.send("api working");
+});
+
+app.listen(port, () => {
+  console.log(`Server Started on http://localhost:${port}`);
+});
+
+
+step2 -->  db.js for database connection-> import mongoose from "mongoose";
+
+export const connectDB = async()=>{
+    await mongoose.connect('mongodb+srv://delivery:f09ood@cluster0.wgtskmg.mongodb.net/food-del')
+    .then(()=>console.log("db connected"));
+}
+
+step3 -->  models/foodmodels -->  
