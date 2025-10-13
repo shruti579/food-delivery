@@ -1,7 +1,10 @@
 // mongodb+srv://delivery:f09oo#d@cluster0.wgtskmg.mongodb.net/?
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config(); 
 
 export const connectDB = async()=>{
-    await mongoose.connect('mongodb+srv://delivery:f09ood@cluster0.wgtskmg.mongodb.net/food-del')
+    await mongoose.connect(process.env.MONGO_URI)
     .then(()=>console.log("db connected"));
 }
