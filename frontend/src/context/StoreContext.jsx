@@ -42,6 +42,11 @@ const StoreContextProvider = (props) =>{
         return totalAmount;
     }
 
+        useEffect(()=>{
+        console.log(cartItems);
+    },[cartItems])
+
+
     //api for fetch food-item api
     const fetchFoodList = async ()=>{
         const response = await axios.get(url+"/api/food/list");
@@ -75,9 +80,7 @@ const StoreContextProvider = (props) =>{
             token,
             setToken
     }
-    useEffect(()=>{
-        console.log(cartItems);
-    },[cartItems])
+
     return(
         <StoreContext.Provider value={contextvalue}>
             {props.children}
