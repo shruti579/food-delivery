@@ -6,7 +6,7 @@ import Cart from "./pages/Cart/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Footer from "./Components/Footer/Footer";
 import LoginPopup from "./Components/LoginPopup/LoginPopup";
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer,Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
@@ -16,7 +16,12 @@ const App = () => {
     <>
     {showLogin ? <LoginPopup setShowLogin={setShowLogin}/> : <></>}
     <div className="app">
-       <ToastContainer/>
+       <ToastContainer     position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        transition={Zoom}
+        />
       <Navbar setShowLogin={setShowLogin} />
       <Routes>
         <Route path="/" element={<Home />} />
