@@ -78,7 +78,7 @@ const LoginPopup = ({ setShowLogin }) => {
             required
           />
           <input
-          
+            type="password"
             onChange={onChangeHandler}
             name="password"
             value={data.password}
