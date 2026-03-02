@@ -3,6 +3,7 @@ import {assets} from '../../assets/assets'
 import './Navbar.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
+import { toast } from "react-toastify";
 
  const Navbar = ({setShowLogin}) => {
 
@@ -18,7 +19,7 @@ import { StoreContext } from '../../context/StoreContext';
       localStorage.removeItem("token");
       setToken("");
        navigate("/")  
-      
+       toast.success("Logged out successfully");
      }
 
      const orders =()=>{
